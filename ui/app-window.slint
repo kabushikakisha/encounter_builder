@@ -1,0 +1,31 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    in-out property <string> roll;
+    callback re_roll();
+    background: white;
+    VerticalBox {
+        Text {
+            text: "Click Button to Roll";
+            font-size: 5rem;
+            vertical-alignment: center;
+            horizontal-alignment: center;
+        }
+        Text {
+            text: "Current roll is: ";
+            font-size: 5rem;
+            horizontal-alignment: center;
+        }
+        Text {
+            font-size: 6rem;
+            horizontal-alignment: center;
+            text: root.roll;
+        }
+        Button {
+            text: "ROLL!";
+            clicked => {
+                root.re_roll();
+            }
+        }
+    }
+}
